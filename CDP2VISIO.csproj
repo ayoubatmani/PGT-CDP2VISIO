@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{605F6915-BF7E-4089-831E-ADA873DA2CCA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CDP2VISIO</RootNamespace>
+    <AssemblyName>CDP2VISIO</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>CDP2Visio.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>..\..\bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;Professional</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <OutputPath>..\..\..\Program Files %28x86%29\PrettyGoodTerminal\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DEVELOPMENT</DefineConstants>
+    <Optimize>false</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug-Unsigned|AnyCPU'">
+    <OutputPath>bin\Debug-Unsigned\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DEVELOPMENT</DefineConstants>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common">
+      <HintPath>..\..\..\Program Files (x86)\PrettyGoodTerminal\Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Docking">
+      <HintPath>..\..\..\Program Files (x86)\PrettyGoodTerminal\Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelApi">
+      <HintPath>..\..\..\Program Files (x86)\PrettyGoodTerminal\ExcelApi.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Msagl">
+      <HintPath>..\..\..\Program Files (x86)\PrettyGoodTerminal\Microsoft.Msagl.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Msagl.Drawing">
+      <HintPath>..\..\..\Program Files (x86)\PrettyGoodTerminal\Microsoft.Msagl.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Msagl.GraphViewerGdi">
+      <HintPath>..\..\..\Program Files (x86)\PrettyGoodTerminal\Microsoft.Msagl.GraphViewerGdi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="NetOffice">
+      <HintPath>..\..\..\Program Files (x86)\PrettyGoodTerminal\NetOffice.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="OfficeApi, Version=1.7.3.0, Culture=neutral, PublicKeyToken=a39beb0835c43c8e, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Program Files (x86)\PrettyGoodTerminal\OfficeApi.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="PGTInterfaces">
+      <HintPath>..\..\..\Program Files (x86)\PrettyGoodTerminal\PGTInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="PrettyGoodTerminal, Version=7.2.0.0, Culture=neutral, PublicKeyToken=aff603dfccc1d9da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\PrettyGoodTerminal\PrettyGoodTerminal.exe</HintPath>
+    </Reference>
+    <Reference Include="ScriptingEngine, Version=7.2.0.0, Culture=neutral, PublicKeyToken=038d2e1a5284b54f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\PrettyGoodTerminal\ScriptingEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VBIDEApi, Version=1.7.3.0, Culture=neutral, PublicKeyToken=931cec8882205047, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Program Files (x86)\PrettyGoodTerminal\VBIDEApi.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="VisioApi, Version=1.7.3.0, Culture=neutral, PublicKeyToken=bfcd37a3a83f1609, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Program Files (x86)\PrettyGoodTerminal\VisioApi.dll</HintPath>
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddStencilForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddStencilForm.Designer.cs">
+      <DependentUpon>AddStencilForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CDPDataSet.cs">
+      <DependentUpon>CDPDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CDPDataSet.Designer.cs">
+      <DependentUpon>CDPDataSet.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="CDPParser.cs" />
+    <Compile Include="Common.cs" />
+    <Compile Include="Edge.cs" />
+    <Compile Include="CDP2VisioManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CDP2VisioManager.designer.cs">
+      <DependentUpon>CDP2VisioManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExcelHelper.cs" />
+    <Compile Include="PGT_Interface.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="StencilsDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StencilsDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Options.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Options.settings</DependentUpon>
+    </Compile>
+    <Compile Include="VisioDevice.cs" />
+    <Compile Include="VisioInterface.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="CDP2Visio.pfx" />
+    <None Include="CDPDataSet.xsc">
+      <DependentUpon>CDPDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CDPDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CDPDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CDPDataSet.xss">
+      <DependentUpon>CDPDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Resources\PGTVisioShapes.vss" />
+    <None Include="StencilsDS.xsc">
+      <DependentUpon>StencilsDS.xsd</DependentUpon>
+    </None>
+    <None Include="StencilsDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StencilsDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="StencilsDS.xss">
+      <DependentUpon>StencilsDS.xsd</DependentUpon>
+    </None>
+    <None Include="Options.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Options.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Resources\VisioA2Template.vst" />
+    <None Include="Resources\VisioA3Template.vst" />
+    <None Include="Resources\VisioA4Template.vst" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AddStencilForm.resx">
+      <DependentUpon>AddStencilForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CDP2VisioManager.resx">
+      <DependentUpon>CDP2VisioManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CreateSchema_8259_32.bmp" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

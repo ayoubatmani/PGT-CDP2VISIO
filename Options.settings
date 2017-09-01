@@ -1,0 +1,57 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CDP2VISIO" GeneratedClassName="Options">
+  <Profiles />
+  <Settings>
+    <Setting Name="DisplayConnected" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="MessagewhenVisioDocCompleted" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="MRUProtocol" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MRUJumpServer" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DocSize" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="GraphAlg" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="VisioStencilsPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\CDP2Visio\Stencils\</Value>
+    </Setting>
+    <Setting Name="StencilsDBName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">stencils.xml</Value>
+    </Setting>
+    <Setting Name="MRUDeviceList" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="VisioTemplatesPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\CDP2Visio\Templates\</Value>
+    </Setting>
+    <Setting Name="VisioA4Template" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="VisioA3Template" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="VisioA2Template" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MRUOutputPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MRUConnType" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="InventoryDBDirectory" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\CDP2Visio\Inventory\</Value>
+    </Setting>
+    <Setting Name="MRUActiveDiscovery" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
