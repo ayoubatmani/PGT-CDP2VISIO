@@ -47,7 +47,7 @@ namespace CDP2VISIO
 
     public void Initialize(IScriptExecutorBase Executor)
     {
-      DebugEx.WriteLine("Initializing CDPtoVISIO CustomActionHandler... ", DebugLevel.Informational);
+      DebugEx.WriteLine("Initializing PGTNetworkDiscovery CustomActionHandler... ", DebugLevel.Informational);
       local_dataset = new CDPDataSet();
       local_dataset.Clear();
       ScriptSettings = SettingsManager.GetCurrentScriptSettings();
@@ -78,7 +78,7 @@ namespace CDP2VISIO
 
     public void Terminate()
     {
-      DebugEx.WriteLine("Terminating CDPtoVISIO CustomActionHandler and saving Inventory information", DebugLevel.Informational);
+      DebugEx.WriteLine("Terminating PGTNetworkDiscovery CustomActionHandler and saving Inventory information", DebugLevel.Informational);
       bool RetryWrite = true;
       while (RetryWrite)
       {

@@ -25,7 +25,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>CDP2Visio.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>CDP2VISIO.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>..\..\bin\</OutputPath>
@@ -159,7 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="CDP2Visio.pfx" />
+    <None Include="CDP2VISIO.pfx" />
     <None Include="CDPDataSet.xsc">
       <DependentUpon>CDPDataSet.xsd</DependentUpon>
     </None>

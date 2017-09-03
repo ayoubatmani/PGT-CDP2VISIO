@@ -677,8 +677,8 @@ namespace CDP2VISIO
               {
                 string thisLine = "";
                 // construct the script line as CSV line (like one single in a CSV script files
-                if (isValidIP) thisLine = string.Format("1{0}" + cbxJumpServers.Text + "{0}Cisco{0}" + deviceIP + "{0}" + hostName + "{0}" + cbxProtocols.Text + "{0}{0}yes{0}{0}{0}CDPtoVISIO{0}{0}", sep);
-                else thisLine = string.Format("1{0}" + cbxJumpServers.Text + "{0}Cisco{0}" + "{0}" + deviceIP + "" + "{0}" + cbxProtocols.Text + "{0}{0}yes{0}{0}{0}CDPtoVISIO{0}{0}", sep);
+                if (isValidIP) thisLine = string.Format("1{0}" + cbxJumpServers.Text + "{0}Cisco{0}" + deviceIP + "{0}" + hostName + "{0}" + cbxProtocols.Text + "{0}{0}yes{0}{0}{0}PGTNetworkDiscovery{0}{0}", sep);
+                else thisLine = string.Format("1{0}" + cbxJumpServers.Text + "{0}Cisco{0}" + "{0}" + deviceIP + "" + "{0}" + cbxProtocols.Text + "{0}{0}yes{0}{0}{0}PGTNetworkDiscovery{0}{0}", sep);
                 // append custom fields
                 thisLine += (sep + string.Join(sep, ipAndhostName.SkipWhile((string text, int index) => index < 2)));
                 // add the generated line to the script
