@@ -13,7 +13,7 @@
 
 
 using Microsoft.Msagl.Drawing;
-using Microsoft.Msagl.Mds;
+using Microsoft.Msagl.Layout.MDS;
 using NetOffice.ExcelApi.Enums;
 using PGT.Common;
 using System;
@@ -58,9 +58,7 @@ namespace CDP2VISIO
     private const string DefaultStencilName = "PGTVisioShapes.vss";
     private bool load_db = false;
     private bool msalg = false;
-    private BackgroundWorker workInProgress;
-    private string workInProgressText = "Work in progress...";
-    private string workInProgressCaption = "Please be patient";
+    private WorkInProgress workInProgress;
 
     /// <summary>
     /// The file name used by this instance of CDP2VISIO engine. The unique name is generated from the ScriptingEngine EngineID
@@ -84,9 +82,7 @@ namespace CDP2VISIO
         Display.TabPages.Remove(tpNeighbors);
         Display.TabPages.Remove(tpMSAGL);
       }
-      workInProgress = new BackgroundWorker();
-      workInProgress.DoWork += workInProgress_DoWork;
-      workInProgress.WorkerSupportsCancellation = true;
+			workInProgress = new WorkInProgress("Please wait", "Work in progress...");
       SetControlBackGround(this);
       cbxJumpServers.DataSource = PGT.Common.JumpServersManager.GetJumpServersAddress();
       this.Text += string.Format(" - v{0}", Assembly.GetExecutingAssembly().GetName().Version.ToString());
@@ -110,29 +106,6 @@ namespace CDP2VISIO
 
     }
 
-    private void workInProgress_DoWork(object sender, DoWorkEventArgs e)
-    {
-      WorkInProgressAnimation L = null;
-      DateTime waitStartedAt = DateTime.Now;
-      while (true)
-      {
-        System.Threading.Thread.Sleep(100);
-        if ((DateTime.Now - waitStartedAt).TotalSeconds > 2)
-        {
-          if (L == null)
-          {
-            L = new WorkInProgressAnimation(workInProgressText, workInProgressCaption);
-            L.Show();
-          }
-        }
-        System.Windows.Forms.Application.DoEvents();
-        if (workInProgress.CancellationPending)
-        {
-          if (L != null) L.Close();
-          break;
-        }
-      }
-    }
     #endregion
 
     #region Private members
@@ -189,7 +162,6 @@ namespace CDP2VISIO
 
 
       gViewer1.Graph = tree;
-      foreach (var ed in tree.GeometryGraph.Edges) ed.CreateSimpleEdgeCurve();
       gViewer1.Graph = tree;
       gViewer1.LayoutEngine.Layout(gViewer1, new LayoutEventArgs(gViewer1, "curves"));
       #endregion
@@ -542,7 +514,6 @@ namespace CDP2VISIO
       this.gViewer1.TabIndex = 6;
       this.gViewer1.ToolBarIsVisible = true;
       this.gViewer1.ZoomF = 1D;
-      this.gViewer1.ZoomFraction = 0.5D;
       this.gViewer1.ZoomWindowThreshold = 0.05D;
       this.tpMSAGL.Controls.Add(this.gViewer1);
     }
@@ -715,7 +686,7 @@ namespace CDP2VISIO
         try
         {
           btnCreateVisio.Enabled = false;
-          workInProgress.RunWorkerAsync();
+					workInProgress.Run();
           try
           {
             visio_devices_list.Clear();
@@ -731,7 +702,7 @@ namespace CDP2VISIO
           finally
           {
             btnCreateVisio.Enabled = true;
-            workInProgress.CancelAsync();
+						workInProgress.Cancel();
           }
         }
         catch (Exception Ex)
@@ -1382,7 +1353,7 @@ namespace CDP2VISIO
           {
             if (maskLength >= 16 && maskLength <= 30)
             {
-              workInProgress.RunWorkerAsync();
+							workInProgress.Run();
               try
               {
                 string[] hosts = PGT.Common.IPOperations.GetHostAddresses(addressAndMask[0], maskLength);
@@ -1390,7 +1361,7 @@ namespace CDP2VISIO
               }
               finally
               {
-                workInProgress.CancelAsync();
+								workInProgress.Cancel();
               }
             }
             else MessageBox.Show("Weird subnet mask. It should be between 16 and 30", "Address input error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

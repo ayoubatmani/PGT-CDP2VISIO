@@ -1158,7 +1158,6 @@
       this.gViewer1.TabIndex = 6;
       this.gViewer1.ToolBarIsVisible = true;
       this.gViewer1.ZoomF = 1D;
-      this.gViewer1.ZoomFraction = 0.5D;
       this.gViewer1.ZoomWindowThreshold = 0.05D;
       // 
       // devicesBindingSource

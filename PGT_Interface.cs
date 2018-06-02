@@ -29,6 +29,7 @@ namespace CDP2VISIO
   {
     #region Fields
     private CDPDataSet local_dataset;
+		private bool _terminated = false;
     private PGTDataSet.ScriptSettingRow ScriptSettings;
     /// <summary>
     /// The name of the inventory file that is to be created
@@ -43,15 +44,22 @@ namespace CDP2VISIO
     /// Controls whether newly discovered CDP neighbors will also be added to script and therefore be discovered, too
     /// </summary>
     private bool AllowRecursion = true;
-    #endregion
+		/// <summary>
+		/// The provider of current instance
+		/// </summary>
+		private ICustomActionHandlerProvider cahProvider = null;
 
-    public void Initialize(IScriptExecutorBase Executor)
+		public ICustomActionHandlerProvider Provider => this.cahProvider;
+		#endregion
+
+		public void Initialize(IScriptExecutorBase Executor)
     {
       DebugEx.WriteLine("Initializing PGTNetworkDiscovery CustomActionHandler... ", DebugLevel.Informational);
+			_terminated = false;
       local_dataset = new CDPDataSet();
       local_dataset.Clear();
       ScriptSettings = SettingsManager.GetCurrentScriptSettings();
-      Guid engineID = Executor.EngineID();
+      Guid engineID = Executor.EngineID;
       // search an existing inventory file and load. used later for checking domain boundary
       InventoryFileName = string.Format("{0}{1}{2}.xml", Helper.GetWorkingDirectory(), Options.Default.InventoryDBDirectory, engineID.ToString());
       DebugEx.WriteLine(string.Format("Checking for pre-existing inventory file {0}... ", InventoryFileName), DebugLevel.Informational);
@@ -134,6 +142,7 @@ namespace CDP2VISIO
           RetryWrite = MessageBox.Show(msg, "Could not create inventory file", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes;
         }
       }
+			_terminated = true;
     }
 
     public bool LoggingRequired()
@@ -141,7 +150,7 @@ namespace CDP2VISIO
       return false;
     }
 
-    public bool DoCustomAction(IScriptExecutorBase Executor, DeviceConnectionInfo ConnectionInfo, out string ActionResult, out bool ConnectionDropped, out bool BreakExecution)
+    public bool DoCustomAction(IScriptExecutorBase Executor, DeviceConnectionInfo ConnectionInfo, out dynamic ActionResult, out bool ConnectionDropped, out bool BreakExecution)
     {
       bool result = false;
       ActionResult = "Custom action not implemented";
@@ -627,7 +636,17 @@ namespace CDP2VISIO
       else if (conv_int.IndexOf("lo") >= 0) conv_int = conv_int.Replace("lo", "loopback");
       return conv_int;
     }
-  }
+
+		public void RegisterProvider(ICustomActionHandlerProvider provider)
+		{
+			this.cahProvider = provider;
+		}
+
+		public bool IsTerminated()
+		{
+			return _terminated;
+		}
+	}
 
   public class CDPtoVISIOManager : ICustomMenuHandler
   {
@@ -641,6 +660,7 @@ namespace CDP2VISIO
       #region Menu definition
       tsmMainMenu.Image = Resources.Resources.CreateSchema_8259_32;
       tsmMainMenu.ImageTransparentColor = System.Drawing.Color.Black;
+			tsmMainMenu.ImageScaling = ToolStripItemImageScaling.None;
       tsmMainMenu.Name = "CDP2VISIOManager.tsmMainMenu";
       tsmMainMenu.Text = "CDP Network Discovery";
       tsmMainMenu.Click += tsmMainMenu_Click;

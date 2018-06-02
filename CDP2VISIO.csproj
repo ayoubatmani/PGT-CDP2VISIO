@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CDP2VISIO</RootNamespace>
     <AssemblyName>CDP2VISIO</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
     <SccProjectName>
@@ -28,7 +28,7 @@
     <AssemblyOriginatorKeyFile>CDP2VISIO.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>..\..\bin\</OutputPath>
+    <OutputPath>..\PrettyGoodTerminal\bin\</OutputPath>
     <DefineConstants>TRACE;DEBUG;Professional</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
@@ -45,6 +45,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug-Unsigned|AnyCPU'">
     <OutputPath>bin\Debug-Unsigned\</OutputPath>
@@ -53,46 +54,59 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Common">
       <HintPath>..\..\..\Program Files (x86)\PrettyGoodTerminal\Common.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Docking">
       <HintPath>..\..\..\Program Files (x86)\PrettyGoodTerminal\Docking.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="ExcelApi">
       <HintPath>..\..\..\Program Files (x86)\PrettyGoodTerminal\ExcelApi.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>False</Private>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Msagl">
       <HintPath>..\..\..\Program Files (x86)\PrettyGoodTerminal\Microsoft.Msagl.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Msagl.Drawing">
       <HintPath>..\..\..\Program Files (x86)\PrettyGoodTerminal\Microsoft.Msagl.Drawing.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Msagl.GraphViewerGdi">
       <HintPath>..\..\..\Program Files (x86)\PrettyGoodTerminal\Microsoft.Msagl.GraphViewerGdi.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="NetOffice">
       <HintPath>..\..\..\Program Files (x86)\PrettyGoodTerminal\NetOffice.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>False</Private>
     </Reference>
     <Reference Include="OfficeApi, Version=1.7.3.0, Culture=neutral, PublicKeyToken=a39beb0835c43c8e, processorArchitecture=MSIL">
       <HintPath>..\..\..\Program Files (x86)\PrettyGoodTerminal\OfficeApi.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>True</Private>
     </Reference>
     <Reference Include="PGTInterfaces">
       <HintPath>..\..\..\Program Files (x86)\PrettyGoodTerminal\PGTInterfaces.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="PrettyGoodTerminal, Version=7.2.0.0, Culture=neutral, PublicKeyToken=aff603dfccc1d9da, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Program Files (x86)\PrettyGoodTerminal\PrettyGoodTerminal.exe</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="ScriptingEngine, Version=7.2.0.0, Culture=neutral, PublicKeyToken=038d2e1a5284b54f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Program Files (x86)\PrettyGoodTerminal\ScriptingEngine.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -105,10 +119,11 @@
     <Reference Include="VBIDEApi, Version=1.7.3.0, Culture=neutral, PublicKeyToken=931cec8882205047, processorArchitecture=MSIL">
       <HintPath>..\..\..\Program Files (x86)\PrettyGoodTerminal\VBIDEApi.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>False</Private>
     </Reference>
     <Reference Include="VisioApi, Version=1.7.3.0, Culture=neutral, PublicKeyToken=bfcd37a3a83f1609, processorArchitecture=MSIL">
       <HintPath>..\..\..\Program Files (x86)\PrettyGoodTerminal\VisioApi.dll</HintPath>
-      <Private>True</Private>
+      <Private>False</Private>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
   </ItemGroup>
